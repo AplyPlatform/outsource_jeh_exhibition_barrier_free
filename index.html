@@ -13,57 +13,13 @@
     <title>정은혜 전시회</title>
 <body>
     <audio src="abc.mp3" crossorigin="anonymous"></audio>
-    <H3 id="playButton" style="display:none;">PLAY</H3> &nbsp;  &nbsp; <H3 id="stopButton" style="display:none;">STOP</H3> &nbsp;  &nbsp; <H3 id="pauseButton" style="display:none;">PAUSE</H3>    
-
+    <H3 id="playButton" style="display:none;">PLAY</H3>
+    <br>
+    <H3 id="stopButton" style="display:none;">STOP</H3>
+    <br>
+    <H3 id="pauseButton" style="display:none;">PAUSE</H3>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <script>
-        let audioCtx = null;
-        let track;
-
-        const audioElement = document.querySelector("audio");
-        audioElement.addEventListener(
-            "ended",
-            () => {
-                $("#playButton").show();
-                $("#stopButton").hide();
-                $("#pauseButton").hide();
-            },
-            false
-        );        
-        
-        $("#playButton").click(function() {                
-                if (audioCtx.state === "suspended") {
-                    audioCtx.resume();                    
-                }
-
-                audioElement.play();
-                $("#playButton").hide();
-                $("#stopButton").show();
-                $("#pauseButton").show();
-        });
-
-        $("#stopButton").click(function() {
-                audioElement.pause();
-                audioElement.currentTime = 0;                
-                $("#playButton").show();
-                $("#stopButton").hide();
-                $("#pauseButton").hide();
-        });
-
-        $("#pauseButton").click(function() {
-            audioElement.pause();          
-            $("#pauseButton").hide();
-            $("#playButton").show();
-        });
-
-        function init() {            
-            audioCtx = new AudioContext();
-            $("#playButton").show();       
-        }
-   
-        $(function() {            
-            init();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
