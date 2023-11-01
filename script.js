@@ -15,17 +15,35 @@ function reqQRIDdata(id) {
     currentId = id;
 }
 
+function setEndMent() {
+    $("#loaderMent").hide();
+    $("#endMent").show();
+
+    setCurAudio("end",
+        function() {
+            $("#playButton").show();
+            $("#stopButton").hide();
+            $("#pauseButton").hide();
+            $("#endMent").hide();
+            isPlay = false;
+            isPaused = false;
+            isByStopButton = false;
+        },
+        function() {
+            $("#playButton").hide();
+            $("#stopButton").hide();
+            $("#pauseButton").hide();
+
+            audioElement.play();
+    });
+}
+
 function realContentPlay() {
     if (currentId < 0) return;
 
     setCurAudio(currentId, 
         function() {
-            $("#playButton").show();
-            $("#stopButton").hide();
-            $("#pauseButton").hide();
-            isPlay = false;
-            isPaused = false;
-            isByStopButton = false;
+            setEndMent();
         }, 
         function() {
             $("#playButton").hide();
@@ -42,12 +60,15 @@ function showLoader() {
     $("#playButton").hide();
     $("#stopButton").hide();
     $("#pauseButton").hide();
+    $("#loaderMent").show();
+    $("#endMent").hide();
 
     setCurAudio("wait",
         function () {
             isPlay = false;
             isPaused = false;
             isByStopButton = false;
+            $("#loaderMent").hide();
             realContentPlay();
         }, 
         function() {
@@ -84,6 +105,8 @@ function init() {
     $("#playButton").show();
     $("#pauseButton").hide();
     $("#stopButton").hide();
+    $("#loaderMent").hide();
+    $("#endMent").hide();
     
     $("#playButton").click(function() {
         if (isPaused == true) {
