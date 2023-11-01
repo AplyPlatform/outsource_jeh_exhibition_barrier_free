@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <meta name="theme-color" content="#11897D" >
@@ -11,24 +11,77 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <title>정은혜 전시회</title>
-<body>    
-    <audio id="audio" crossorigin="anonymous">
-        <source id="audioSource"></source>
-        죄송합니다. 소리를 재생할 수 없는 모바일 디바이스입니다.
-    </audio>
-    <H3 id="playButton" style="display:none;">PLAY</H3>
-    <br>
-    <H3 id="stopButton" style="display:none;">STOP</H3>
-    <br>
-    <H3 id="pauseButton" style="display:none;">PAUSE</H3>
-
-    <div>
-        <H1 id="loaderMent">잠시만 기다려 주세요.</H1>
-        <H1 id="endMent">소개가 끝났습니다.</H1>
-    </div>
-
     
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3bc6b6ae05.js" crossorigin="anonymous"></script>
+    
+    <style>
+    	body {margin:0; font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #151515; text-align: left; background-color: #fff; padding:0; margin:0;}
+    	.container {width:100%; max-width:1170px; padding:10px 15px; margin:0 auto; white-space: normal; background:url("images/bg_glowing.png") no-repeat top left; background-size: cover;}
+    	@media (min-width: 576px) {
+
+    	}
+    	
+    	.hr {margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 1px solid #cecece; opacity:0.5; width:50%; margin:0 auto;}
+    	.text-center {text-align:center;}
+    	.text-right {text-align:right;}
+    	.text-white {color:#FFF;}
+    	.summary {padding:20px;}
+    	.summary .title {font-size:1.5rem; font-weight:400;}
+    	.summary .body {color:#cecece;}
+    	h3.control-button {font-size:2rem; padding:1rem 0;}
+    	.summary {overflow-y:auto; overflow-x:hidden;}
+    	.footer {font-size:0.75rem; padding: 10px 0; color:#ddd}
+    	.qr {font-size:0.75rem; padding:10px;}
+    	.qr img {width:70px;}
+    	a {color:#FFF; text-decoration:none;}
+
+    </style>
+    
+	<body>
+		<div class="container">
+    		<audio id="audio" crossorigin="anonymous">
+        		<source id="audioSource"></source>
+        		죄송합니다. 소리를 재생할 수 없는 모바일 디바이스입니다.
+    		</audio>
+    		
+    		<div class="qr text-right text-white"><img src="images/qrscan.png"><br />QR코드 읽기</div>
+    		
+    		<!-- start play control -->
+    		<section>
+    			<div class="text-center text-white">
+    				<h3 class="control-button" id="playButton" style="display:none;"><i class="far fa-play-circle"></i> Play</h3>
+    				<h3 class="control-button" id="stopButton" style="display:none;"><i class="far fa-stop-circle"></i> Stop</h3>
+    				<h3 class="control-button" id="pauseButton" style="display:none;"><i class="far fa-pause-circle"></i> Pause</h3>
+    			</div>
+    		</section>
+
+    		<div class="text-center text-white">
+        		<H1 id="loaderMent">잠시만 기다려 주세요.</H1>
+        		<H1 id="endMent">소개가 끝났습니다.</H1>
+    		</div>
+    		<!-- end play control -->
+    		
+    		<div class="hr"></div>
+    		
+    		<!-- start text control -->
+    		<section>
+    			<div class="summary">
+    				<p class="title text-center text-white">제목</p>
+    				<p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec sapien a ante blandit gravida sit amet cursus est. Proin ac rutrum lectus. Mauris facilisis metus ac diam egestas, a aliquam dui efficitur. Fusce ullamcorper ullamcorper tortor. Praesent tincidunt libero ultricies vestibulum dapibus. Sed faucibus pretium sapien in finibus. Maecenas et urna et turpis vestibulum dictum eu non orci. Vivamus pulvinar venenatis leo, vitae tempus ex vestibulum id. Nulla blandit quam sit amet quam condimentum faucibus. Vivamus risus sem, mattis ut magna vitae, faucibus tincidunt eros. Mauris bibendum eget mi in lacinia. Nullam posuere fermentum massa. Etiam laoreet elit ut dolor pretium, malesuada malesuada est fermentum. Vestibulum id eleifend ligula.
+    			  </p>
+    			</div>
+    		</section>
+    		<!-- end play control -->
+    		
+    		<div class="hr"></div>
+    		
+    		<div class="footer text-center">powered by <a href="//aplx.link">APLX</a></div>
+    	</div>	
+    		
+    	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    	<script src="script.js"></script>
+	</body>
 </html>
