@@ -13,6 +13,12 @@ let endCallback = null,
 
 function reqQRIDdata(id) {
     currentId = id;
+    setTextContent();
+}
+
+function setTextContent() {
+    if (currentId < 0) return;
+    setContent(".summary", currentId + ".html");
 }
 
 function setEndMent() {
@@ -178,11 +184,19 @@ function checkParam() {
     const urlParams = new URLSearchParams(queryString);    
 	let qr_id = urlParams.get('i');
 
-	if (isSet(qr_id)) {
-		reqQRIDdata(qr_id);
-	}
-
+	if (isSet(qr_id)) reqQRIDdata(qr_id);
 }
+
+async function setContent(targetId, templateName) {
+    let pageContent = await loadTemplate(templateName);
+    $(targetId).html(pageContent);
+}
+
+async function loadTemplate(templateName) {
+    const content = await fetch(templateName);
+    return content.text();
+}
+
 
 $(function() {            
     init();
