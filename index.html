@@ -18,26 +18,25 @@
     <script src="https://kit.fontawesome.com/3bc6b6ae05.js" crossorigin="anonymous"></script>
     
     <style>
-    	body {margin:0; font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #151515; text-align: left; background-color: #151515; padding:0; margin:0;}
-    	.container {width:100%; max-width:1170px; padding:10px 15px; margin:0 auto; white-space: normal; background:url("images/bg_glowing.png") no-repeat top left; background-size: cover;}
-    	@media (min-width: 576px) {
-
-    	}
-    	
-    	.hr {margin-top: 1rem; margin-bottom: 1rem; border: 0; border-top: 1px solid #cecece; opacity:0.5; width:50%; margin:0 auto;}
+    	body {padding:0; margin:0; font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #151515; text-align: left; background-color:#000030; height:100%;}
+    	a {color:#FFF; text-decoration:none;}
+    	h1 {font-size:1.5rem;}
+    	.container {width:100%; margin:0 auto; white-space: normal; background:url("images/bg_glowing.png") no-repeat top left; background-size:cover;}
+    	section {position: relative; margin: 0 auto; padding:0; overflow: hidden;}    	
+    	.hr {margin-top:1rem; margin-bottom:1rem; border: 0; border-top: 1px solid #cecece; opacity:0.5; width:65%; margin:0 auto;}
     	.text-center {text-align:center;}
     	.text-right {text-align:right;}
     	.text-white {color:#FFF;}
-    	.summary {padding:20px;}
+    	.control-button {font-size:1.75rem; padding:10px 10px 20px 10px; margin:0; display:inline-block;}
+    	.summary {width:90%; margin:0 auto; padding:0 0 15px 0; overflow-y:scroll; overflow-x:hidden;}
+    	.summary ::-webkit-scrollbar {width:10px;}
+    	.summary ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius:5px;}
+    	.summary ::-webkit-scrollbar-thumb {background:#FFF; border-radius:5px;}
     	.summary .title {font-size:1.5rem; font-weight:400;}
-    	.summary .body {color:#cecece;}
-    	h3.control-button {font-size:2rem; padding:1rem 0;}
-    	.summary {overflow-y:auto; overflow-x:hidden;}
-    	.footer {font-size:0.75rem; padding: 10px 0; color:#ddd}
-    	.qr {font-size:0.75rem; padding:10px;}
+    	.summary .body {color:#cecece; overflow-y:scroll; height:330px;}    	
+    	.footer {font-size:0.75rem; padding:20px;color:#ddd;}
+    	.qr {font-size:0.75rem; padding:20px;}
     	.qr img {width:70px;}
-    	a {color:#FFF; text-decoration:none;}
-
     </style>
     
 	<body>
@@ -47,15 +46,15 @@
     		<!-- start play control -->
     		<section>
     			<div class="text-center text-white">
-    				<h3 class="control-button" id="playButton" style="display:none;cursor:pointer;"><i class="far fa-play-circle"></i> 듣기</h3>
-    				<h3 class="control-button" id="stopButton" style="display:none;cursor:pointer;"><i class="far fa-stop-circle"></i> 정지</h3>
-    				<h3 class="control-button" id="pauseButton" style="display:none;cursor:pointer;"><i class="far fa-pause-circle"></i> 일시정지</h3>
+    				<div class="control-button" id="playButton" style="display:none;cursor:pointer;"><i class="far fa-play-circle"></i> 듣기</div>
+    				<div class="control-button" id="stopButton" style="display:none;cursor:pointer;"><i class="far fa-stop-circle"></i> 정지</div>
+    				<div class="control-button" id="pauseButton" style="display:none;cursor:pointer;"><i class="far fa-pause-circle"></i> 일시정지</div>
     			</div>
     		</section>
 
     		<div class="text-center text-white">
-        		<H1 id="loaderMent">잠시만 기다려 주세요.</H1>
-        		<H1 id="endMent">소개가 끝났습니다.</H1>
+        		<h1 id="loaderMent">잠시만 기다려 주세요.</h1>
+        		<h1 id="endMent">소개가 끝났습니다.</h1>
     		</div>
     		<!-- end play control -->
     		
