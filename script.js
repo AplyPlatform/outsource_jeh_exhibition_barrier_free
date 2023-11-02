@@ -47,8 +47,9 @@ function setEndMent() {
         function() {
             $("#playButton").hide();
             $("#stopButton").hide();
-            $("#pauseButton").hide();
+            $("#pauseButton").hide();            
             hideLoaderAni();
+            audioElement.play();
     });
 }
 
