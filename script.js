@@ -21,6 +21,14 @@ function setTextContent() {
     setContent(".summary", currentId + ".html");
 }
 
+function showLoaderAni() {
+    $(".loader_anime").show();
+}
+
+function hideLoaderAni() {
+    $(".loader_anime").hide();
+}
+
 function setEndMent() {
     $("#loaderMent").hide();
     $("#endMent").show();
@@ -31,6 +39,7 @@ function setEndMent() {
             $("#stopButton").hide();
             $("#pauseButton").hide();
             $("#endMent").hide();
+            hideLoaderAni();
             isPlay = false;
             isPaused = false;
             isByStopButton = false;
@@ -39,8 +48,7 @@ function setEndMent() {
             $("#playButton").hide();
             $("#stopButton").hide();
             $("#pauseButton").hide();
-
-            audioElement.play();
+            hideLoaderAni();
     });
 }
 
@@ -55,6 +63,7 @@ function realContentPlay() {
             $("#playButton").hide();
             $("#stopButton").show();
             $("#pauseButton").show();
+            showLoaderAni();
             audioElement.play();
             isPlay = true;
             isPaused = false;
@@ -80,7 +89,7 @@ function showLoader() {
         function() {
             isPlay = true;
             isPaused = false;
-            isByStopButton = false;
+            isByStopButton = false;            
             audioElement.play();            
     });
 }
@@ -121,6 +130,7 @@ function init() {
             $("#playButton").hide();
             $("#stopButton").show();
             $("#pauseButton").show();
+            showLoaderAni();            
             return;
         }
 
@@ -138,6 +148,7 @@ function init() {
             $("#playButton").show();
             $("#stopButton").hide();
             $("#pauseButton").hide();
+            hideLoaderAni();
     });
     
     $("#pauseButton").click(function() {
@@ -145,6 +156,7 @@ function init() {
         audioElement.pause();        
         $("#pauseButton").hide();
         $("#playButton").show();
+        hideLoaderAni();
     });
 
     audioElement.addEventListener(
