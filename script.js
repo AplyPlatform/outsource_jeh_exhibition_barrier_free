@@ -14,6 +14,7 @@ let endCallback = null,
 function reqQRIDdata(id) {
     currentId = id;
     setTextContent();
+    $("#mainLoader").hide();
 }
 
 function setTextContent() {
@@ -115,6 +116,17 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
     canPlayCallback = fcanPlayCallback;
 }
 
+function GA_EVENT(event_name, event_target_name, event_label) {
+    if (typeof gtag !== 'undefined') {
+      gtag(
+          'event', event_name, {
+            'event_category': event_target_name,
+            'event_label': event_label
+          }
+      );
+    }
+}
+
 function init() {            
     audioCtx = new AudioContext();
 
@@ -123,8 +135,14 @@ function init() {
     $("#stopButton").hide();
     $("#loaderMent").hide();
     $("#endMent").hide();
+
+    $("#qrScanBtn").click(function() {
+        GA_EVENT("qrScanBtn", "click", "service");
+        vibrate();
+    });
     
     $("#playButton").click(function() {
+        GA_EVENT("playButton", "click", "service");
         vibrate();
 
         if (isPaused == true) {
@@ -141,6 +159,7 @@ function init() {
     });
     
     $("#stopButton").click(function() {
+        GA_EVENT("stopButton", "click", "service");
         vibrate();
 
         isByStopButton = true;
@@ -157,6 +176,7 @@ function init() {
     });
     
     $("#pauseButton").click(function() {
+        GA_EVENT("pauseButton", "click", "service");
         vibrate();
 
         isPaused = true;
@@ -200,6 +220,7 @@ function checkParam() {
 	let qr_id = urlParams.get('i');
 
 	if (isSet(qr_id)) reqQRIDdata(qr_id);
+    else $("#mainLoader").hide();
 }
 
 async function setContent(targetId, templateName) {
