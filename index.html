@@ -69,6 +69,14 @@
     	.footer {font-size:0.75rem; padding:20px;color:#ddd;}
     	.qr {font-size:0.75rem; padding:20px; width:90px; margin-left: auto;  margin-right: 0;}
     	.qr img {width:50px;}
+		.noselect {
+			-webkit-touch-callout: none; /* iOS Safari */
+			-webkit-user-select: none; /* Safari */
+			-khtml-user-select: none; /* Konqueror HTML */
+			-moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+			user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+		}
 		
 		@keyframes ldio-64w8uzqe4z7 {
 		0% { transform: translate(6px,40px) scale(0); }
@@ -136,16 +144,16 @@
     </head>
 	<body>
 		<div class="container">			
-			<div class="qr text-center text-white"><a href="https://qr.aq.gy" target="_self"><img src="images/qrscan.png" border="0" width="30px"><br />QR코드 스캔</a></div>
+			<div class="qr text-center text-white noselect"><a href="https://qr.aq.gy" target="_self"><img src="images/qrscan.png" border="0" width="30px"><br />QR코드 스캔</a></div>
     		
     		<!-- start play control -->
     		<section>
     			<div class="text-center text-white" style="height:50px;">
-    				<div class="control-button" id="playButton" style="display:none;cursor:pointer;"><i class="far fa-play-circle"></i> 듣기</div>
-    				<div class="control-button" id="stopButton" style="display:none;cursor:pointer;"><i class="far fa-stop-circle"></i> 정지</div>
-    				<div class="control-button" id="pauseButton" style="display:none;cursor:pointer;"><i class="far fa-pause-circle"></i> 일시정지</div>
-    				<h1 id="loaderMent">잠시만 기다려 주세요.</h1>
-    				<h1 id="endMent">소개가 끝났습니다.</h1>										
+    				<div class="control-button noselect" id="playButton" style="display:none;cursor:pointer;"><i class="far fa-play-circle"></i> 듣기</div>
+    				<div class="control-button noselect" id="stopButton" style="display:none;cursor:pointer;"><i class="far fa-stop-circle"></i> 정지</div>
+    				<div class="control-button noselect" id="pauseButton" style="display:none;cursor:pointer;"><i class="far fa-pause-circle"></i> 일시정지</div>
+    				<h1 id="loaderMent" class="noselect">잠시만 기다려 주세요.</h1>
+    				<h1 id="endMent" class="noselect">소개가 끝났습니다.</h1>										
     			</div>
 				<div class="text-center" style="height:30px;">
 					<div class="loader_anime" style="display:none;">
