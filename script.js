@@ -125,6 +125,8 @@ function init() {
     $("#endMent").hide();
     
     $("#playButton").click(function() {
+        vibrate();
+
         if (isPaused == true) {
             audioElement.play();
             isPlay = false;
@@ -139,20 +141,24 @@ function init() {
     });
     
     $("#stopButton").click(function() {
-            isByStopButton = true;
-            isPlay = false;
-            isPaused = false;
+        vibrate();
 
-            audioElement.pause();
-            audioElement.currentTime = 0;
+        isByStopButton = true;
+        isPlay = false;
+        isPaused = false;
 
-            $("#playButton").show();
-            $("#stopButton").hide();
-            $("#pauseButton").hide();
-            hideLoaderAni();
+        audioElement.pause();
+        audioElement.currentTime = 0;
+
+        $("#playButton").show();
+        $("#stopButton").hide();
+        $("#pauseButton").hide();
+        hideLoaderAni();
     });
     
     $("#pauseButton").click(function() {
+        vibrate();
+
         isPaused = true;
         audioElement.pause();        
         $("#pauseButton").hide();
@@ -172,10 +178,6 @@ function init() {
         },
         false
     );
-
-    audioElement.addEventListener('canplaythrough', function() {        
-        
-    });
 
     audioElement.addEventListener('loadeddata', function () {
         if (canPlayCallback) canPlayCallback()
@@ -210,6 +212,10 @@ async function loadTemplate(templateName) {
     return content.text();
 }
 
+function vibrate() {
+    const canVibrate = window.navigator.vibrate;
+    if (canVibrate) window.navigator.vibrate([10,10,5,5]);
+}
 
 $(function() {            
     init();
