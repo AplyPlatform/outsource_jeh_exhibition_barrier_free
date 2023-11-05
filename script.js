@@ -82,7 +82,7 @@ function showLoader() {
     $("#loaderMent").show();
     $("#endMent").hide();
 
-    let stMent = getRandomVal(1, 2);
+    let stMent = getRandomVal(1, 3);
     setCurAudio("voice/start/" + stMent,
         function () {
             isPlay = false;
