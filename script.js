@@ -19,7 +19,7 @@ function reqQRIDdata(id) {
 
 function setTextContent() {
     if (currentId < 0) return;
-    setContent(".summary", currentId + ".html");
+    setContent(".summary", "text/" + currentId + ".html");
 }
 
 function showLoaderAni() {
@@ -34,7 +34,8 @@ function setEndMent() {
     $("#loaderMent").hide();
     $("#endMent").show();
 
-    setCurAudio("end",
+    let stMent = getRandomVal(1, 4);
+    setCurAudio("voice/end/" + stMent,
         function() {
             $("#playButton").show();
             $("#stopButton").hide();
@@ -57,7 +58,8 @@ function setEndMent() {
 function realContentPlay() {
     if (currentId < 0) return;
 
-    setCurAudio(currentId, 
+    let realData = "voice/main/" + currentId;
+    setCurAudio(realData, 
         function() {
             setEndMent();
         }, 
@@ -80,7 +82,8 @@ function showLoader() {
     $("#loaderMent").show();
     $("#endMent").hide();
 
-    setCurAudio("wait",
+    let stMent = getRandomVal(1, 2);
+    setCurAudio("voice/start/" + stMent,
         function () {
             isPlay = false;
             isPaused = false;
@@ -236,6 +239,11 @@ async function loadTemplate(templateName) {
 function vibrate() {
     const canVibrate = window.navigator.vibrate;
     if (canVibrate) window.navigator.vibrate([10,10,5,5]);
+}
+
+function getRandomVal(start, end) {
+    const rand_val = Math.floor(Math.random() * end) + start;
+    return rand_val;
 }
 
 $(function() {            
