@@ -8,18 +8,17 @@ let isPaused = false;
 let isPlay = false;
 let isByStopButton = false;
 
-let endCallback = null,
-    canPlayCallback = null;
+let endCallback = null;
+let canPlayCallback = null;
 
-function reqQRIDdata(id) {
+async function reqQRIDdata(id) {
     currentId = id;
-    setTextContent();
-    $("#mainLoader").hide();
+    await setTextContent();
+    $("#mainLoader").hide();    
 }
 
-function setTextContent() {
-    if (currentId < 0) return;
-    setContent(".summary", "text/" + currentId + ".html");
+async function setTextContent() {    
+    await setContent(".summary", "text/" + currentId + ".html");
 }
 
 function showLoaderAni() {
@@ -222,8 +221,9 @@ function checkParam() {
     const urlParams = new URLSearchParams(queryString);    
 	let qr_id = urlParams.get('i');
 
-	if (isSet(qr_id)) reqQRIDdata(qr_id);
-    else $("#mainLoader").hide();
+	if (!isSet(qr_id)) qr_id = "1";
+
+    reqQRIDdata(qr_id);    
 }
 
 async function setContent(targetId, templateName) {
