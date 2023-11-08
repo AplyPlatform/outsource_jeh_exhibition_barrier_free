@@ -13,8 +13,10 @@ let canPlayCallback = null;
 
 async function reqQRIDdata(id) {
     currentId = id;
-    await setTextContent();
-    $("#mainLoader").hide();    
+    await setTextContent();    
+    let ptitle = $(".title").text()
+    dataLayer.push({'event': 'pageview', 'page_title': ptitle });
+    $("#mainLoader").hide();
 }
 
 async function setTextContent() {    
