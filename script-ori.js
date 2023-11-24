@@ -126,11 +126,6 @@ function showLoader() {
     });
 }
 
-function hideLoader() {
-    
-}
-
-
 function setCurAudio(id, fendCallback, fcanPlayCallback) {
     audioElement.pause();
     audioElement.currentTime = 0;
