@@ -1,7 +1,30 @@
 
-const audioSource = document.getElementById('audioSource');
-const audioElement = document.querySelector("audio");
+// voice/main 경로에 [0 ~ n].mp3 파일들이 안내 멘트입니다.
+// 웹 주소 경로의 마지막에 parameter 값으로 선택되어 재생됩니다.
+//
+// 예시 : https://eh.aplx.link/?id=1
+//
+// 1.mp3 파일이 재생됩니다.
+//
 
+// voice/start 경로에 시작 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
+// 시작 멘트 파일의 첫번째 id 입니다.
+let start_ment_first_number = 1;
+
+// 시작 멘트 파일의 마지막 id 입니다.
+let start_ment_last_number = 3;
+
+
+// voice/end 경로에 끝맺음 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
+
+// 끝맺음 멘트 파일의 첫번째 id 입니다.
+let end_ment_first_number = 1;
+
+// 끝맺음 멘트 파일의 마지막 id 입니다.
+let end_ment_last_number;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
 let audioCtx = null;
 let currentId = -1;
 let isPaused = false;
@@ -10,6 +33,9 @@ let isByStopButton = false;
 
 let endCallback = null;
 let canPlayCallback = null;
+
+const audioSource = document.getElementById('audioSource');
+const audioElement = document.querySelector("audio");
 
 async function reqQRIDdata(id) {
     currentId = id;
@@ -35,7 +61,7 @@ function setEndMent() {
     $("#loaderMent").hide();
     $("#endMent").show();
 
-    let stMent = getRandomVal(1, 4);
+    let stMent = getRandomVal(end_ment_first_number, end_ment_last_number);
     setCurAudio("voice/end/" + stMent,
         function() {
             $("#playButton").show();
@@ -83,7 +109,7 @@ function showLoader() {
     $("#loaderMent").show();
     $("#endMent").hide();
 
-    let stMent = getRandomVal(1, 3);
+    let stMent = getRandomVal(start_ment_first_number, start_ment_last_number);
     setCurAudio("voice/start/" + stMent,
         function () {
             isPlay = false;
