@@ -1,11 +1,31 @@
+//////////////////////////////////////////////////////////////////////////////////////
+/*
+Copyright (C) 2023 APLY Inc.
+ 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+ 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>
+*/
+//////////////////////////////////////////////////////////////////////////////////////
 
-// voice/main 경로에 [0 ~ n].mp3 파일들이 안내 멘트입니다.
-// 웹 주소 경로의 마지막에 parameter 값으로 선택되어 재생됩니다.
-//
-// 예시 : https://eh.aplx.link/?id=1
-//
-// 1.mp3 파일이 재생됩니다.
-//
+//////////////////////////////////////////////////////////////////////////////////////
+/*
+ voice/main 경로에 [0 ~ n].mp3 파일들이 안내 멘트입니다.
+ 웹 주소 경로의 마지막에 parameter 값으로 선택되어 재생됩니다.
+
+ 예시 : https://eh.aplx.link/?id=1
+
+ 1.mp3 파일이 재생됩니다.
+*/
 
 // voice/start 경로에 시작 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
 // 시작 멘트 파일의 첫번째 id 입니다.
@@ -21,8 +41,8 @@ let start_ment_last_number = 3;
 let end_ment_first_number = 1;
 
 // 끝맺음 멘트 파일의 마지막 id 입니다.
-let end_ment_last_number;
-
+let end_ment_last_number = 4;
+//////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 let audioCtx = null;
@@ -36,6 +56,18 @@ let canPlayCallback = null;
 
 const audioSource = document.getElementById('audioSource');
 const audioElement = document.querySelector("audio");
+
+
+function GA_EVENT(event_name, event_target_name, event_label) {
+    if (typeof gtag !== 'undefined') {
+      gtag(
+          'event', event_name, {
+            'event_category': event_target_name,
+            'event_label': event_label
+          }
+      );
+    }
+}
 
 async function reqQRIDdata(id) {
     currentId = id;
@@ -139,17 +171,6 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
         
     endCallback = fendCallback;
     canPlayCallback = fcanPlayCallback;
-}
-
-function GA_EVENT(event_name, event_target_name, event_label) {
-    if (typeof gtag !== 'undefined') {
-      gtag(
-          'event', event_name, {
-            'event_category': event_target_name,
-            'event_label': event_label
-          }
-      );
-    }
 }
 
 function init() {            
