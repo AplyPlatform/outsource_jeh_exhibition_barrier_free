@@ -5,11 +5,10 @@
 
 script.js 파일의 변수들을 아래 내용을 참고해서 수정하세요.
 
-//  voice/main 폴더에 [0 ~ n].mp3 이름의 음성 파일들이 있습니다.
-//  웹주소 경로의 마지막에 ?id=[n] 의 방법으로 입력된 [n]값에 해당하는 mp3파일을 재생합니다.
-//
-// - 1번 음성 파일(1.mp3) 재생 예시 : https://eh.aplx.link/?id=1
-// 
+voice/main 폴더에 [0 ~ n].mp3 이름의 음성 파일들이 있습니다.
+웹주소 경로의 마지막에 ?id=[n] 의 방법으로 입력된 [n]값에 해당하는 mp3파일을 재생합니다.
+- 1번 음성 파일(1.mp3) 재생 예시 : https://eh.aplx.link/?id=1
+ 
 const voice_file_ext                = ".mp3";               // 음성 파일의 확장자
 const voice_main_path               = "voice/main/";        // 설명 멘트 음성 파일 경로
 const voice_start_ment_path         = "voice/start/";       // 시작 멘트 음성 파일 경로
