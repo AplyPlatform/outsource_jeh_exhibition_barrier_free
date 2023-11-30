@@ -19,7 +19,7 @@ const voice_start_ment_path         = "voice/start/";       // 시작 멘트 음
 
 const voice_end_ment_path           = "voice/end/";         // 끝맺음 멘트 음성 파일 경로
 
-## text/ 폴더에 [0 ~ n].html 이름의 텍스트 설명 파일들이 있습니다.
+## text/ 폴더에 [1 ~ n].html 이름의 텍스트 설명 파일들이 있습니다.
 
 [n]값에 해당하는 html파일을 읽어와 표시합니다.
 
