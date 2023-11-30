@@ -36,3 +36,7 @@ const start_ment_last_number        = 3;                    // 시작 멘트 파
 const end_ment_first_number         = 1;                    // 끝맺음 멘트 파일의 첫번째 id 입니다.
 
 const end_ment_last_number          = 4;                    // 끝맺음 멘트 파일의 마지막 id 입니다.
+
+## QR 폴더에 테스트 가능한 QR 코드 이미지 파일들이 있습니다.
+
+QR 코드를 촬영해서 서비스의 동작모습을 확인할 수도 있습니다
