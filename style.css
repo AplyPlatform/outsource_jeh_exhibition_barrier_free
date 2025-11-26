@@ -8,12 +8,12 @@
     	.text-right {text-align:right;}
     	.text-white {color:#FFF;}
     	.control-button {font-size:1.75rem; padding:10px 10px 20px 10px; margin:0; display:inline-block;}
-    	.summary {width:90%; margin:0 auto; padding:0 0 15px 0; overflow-y:scroll; overflow-x:hidden;}
+    	.summary {width:90%; margin:0 auto; padding:0 0 15px 0; overflow-x:hidden;}
     	.summary ::-webkit-scrollbar {width:10px;}
     	.summary ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius:5px;}
     	.summary ::-webkit-scrollbar-thumb {background:#FFF; border-radius:5px;}
     	.summary .title {font-size:1.5rem; font-weight:400; word-break:keep-all;}
-    	.summary .body {color:#cecece; overflow-y:scroll; height:330px;}    	
+    	.summary .body {color:#cecece; overflow-y:scroll; height:330px;overflow-x:hidden;}    	
     	.footer {font-size:0.75rem; padding:20px;color:#ddd;}
     	.qr {font-size:0.75rem; padding:20px; width:90px; margin-left: auto;  margin-right: 0;}
     	.qr img {width:50px;}
