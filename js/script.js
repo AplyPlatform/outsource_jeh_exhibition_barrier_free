@@ -24,26 +24,26 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 //
 // - 1번 음성 파일(1.mp3) 재생 예시 : https://eh.aplx.link/?id=1
 // 
-const voice_file_ext                = ".mp3";               // 음성 파일의 확장자
-const voice_main_path               = "voice/main/";        // 설명 멘트 음성 파일 경로
-const voice_start_ment_path         = "voice/start/";       // 시작 멘트 음성 파일 경로
-const voice_end_ment_path           = "voice/end/";         // 끝맺음 맨트 음성 파일 경로
+const DEF_VOICE_FILE_EXT                = ".mp3";               // 음성 파일의 확장자
+const DEF_VOICE_FILE_PATH               = "/voice/main/";        // 설명 멘트 음성 파일 경로
+const DEF_VOICE_START_PATH         = "/voice/start/";       // 시작 멘트 음성 파일 경로
+const DEF_VOICE_END_PATH           = "/voice/end/";         // 끝맺음 멘트 음성 파일 경로
 
-//  text/ 폴더에 [0 ~ n].html 이름의 텍스트 설명 파일들이 있습니다.
+//  ment/ 폴더에 [0 ~ n].html 이름의 텍스트 설명 파일들이 있습니다.
 //  [n]값에 해당하는 html파일을 읽어와 표시합니다.
 //
-const text_main_path                = "text/";              // 설명 텍스트를 포함하는 HTML 파일 경로
+const DEF_TEXT_MAIN_PATH                = "/ment/";              // 설명 텍스트를 포함하는 HTML 파일 경로
 
 //  voice/start 폴더에 시작 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
 //
-const start_ment_first_number       = 1;                    // 시작 멘트 파일의 첫번째 id 입니다.
-const start_ment_last_number        = 3;                    // 시작 멘트 파일의 마지막 id 입니다.
+const DEF_VOICE_START_MENT_FIRST_NUM       = 1;                    // 시작 멘트 파일의 첫번째 id 입니다.
+const DEF_VOICE_START_MENT_LAST_NUM        = 3;                    // 시작 멘트 파일의 마지막 id 입니다.
 
 
 //  voice/end 폴더에 끝맺음 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
 //
-const end_ment_first_number         = 1;                    // 끝맺음 멘트 파일의 첫번째 id 입니다.
-const end_ment_last_number          = 4;                    // 끝맺음 멘트 파일의 마지막 id 입니다.
+const DEF_VOICE_END_MENT_FIRST_NUM         = 1;                    // 끝맺음 멘트 파일의 첫번째 id 입니다.
+const DEF_VOICE_END_MENT_LAST_NUM          = 4;                    // 끝맺음 멘트 파일의 마지막 id 입니다.
 //////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -69,13 +69,8 @@ function GA_EVENT(event_name, event_target_name, event_label) {
     }
 }
 
-async function loadTextContent(id) {    
-    await setTextContent(id);
-}
-
 async function setTextContent(id) {
-    //await setContent(".summary", text_main_path + id + ".html");
-    await setContent(".summary", text_main_path + "1.html");
+    await setContent(".summary", DEF_TEXT_MAIN_PATH + id + ".html");
 }
 
 function showLoaderAni() {
@@ -90,8 +85,8 @@ function setEndMent() {
     $("#loaderMent").hide();
     $("#endMent").show();
 
-    let stMent = getRandomVal(end_ment_first_number, end_ment_last_number);
-    setCurAudio(voice_end_ment_path + stMent,
+    let stMent = getRandomVal(DEF_VOICE_END_MENT_FIRST_NUM, DEF_VOICE_END_MENT_LAST_NUM);
+    setCurAudio(DEF_VOICE_END_PATH + stMent,
         function() {
             $("#playButton").show();
             $("#stopButton").hide();
@@ -114,7 +109,7 @@ function setEndMent() {
 function realContentPlay(id) {
     if (id < 0) return;
 
-    let realData = voice_main_path + id;
+    let realData = DEF_VOICE_FILE_PATH + id;
     setCurAudio(realData, 
         function() {
             setEndMent();
@@ -138,8 +133,8 @@ function showMentLoader(id) {
     $("#loaderMent").show();
     $("#endMent").hide();
 
-    let stMent = getRandomVal(start_ment_first_number, start_ment_last_number);
-    setCurAudio(voice_start_ment_path + stMent,
+    let stMent = getRandomVal(DEF_VOICE_START_MENT_FIRST_NUM, DEF_VOICE_START_MENT_LAST_NUM);
+    setCurAudio(DEF_VOICE_START_PATH + stMent,
         function () {
             isPlay = false;
             isPaused = false;
@@ -159,7 +154,7 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
     audioElement.pause();
     audioElement.currentTime = 0;
 
-    audioSource.src = id + voice_file_ext;
+    audioSource.src = id + DEF_VOICE_FILE_EXT;
     audioElement.load();
 
     if (audioCtx.state === "suspended") {
@@ -173,7 +168,7 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
 function init() {                
     let retId = checkParam();
     
-    loadTextContent(retId);
+    setTextContent(retId);
 
     audioCtx = new AudioContext();
 
