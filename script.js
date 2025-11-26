@@ -75,7 +75,7 @@ async function loadTextContent(id) {
 
 async function setTextContent(id) {
     //await setContent(".summary", text_main_path + id + ".html");
-    await setContent(".summary", "1.html");
+    await setContent(".summary", text_main_path + "1.html");
 }
 
 function showLoaderAni() {
