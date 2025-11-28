@@ -1,7 +1,7 @@
-		body {padding:0; margin:0; font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #151515; text-align: left; background-color:#000030; height:100%; word-break:keep-all;}
+		body {padding:0; margin:0; font-family: 'Noto Sans KR', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #151515; text-align: left; background-color:#401725; height:100%; word-break:keep-all;}
     	a {color:#FFF; text-decoration:none;}
     	h1 {font-size:1.75rem; padding:10px 10px 20px 10px; margin:0;}
-    	.container {width:100%; margin:0 auto; white-space: normal; background:url("images/bg_glowing.png") no-repeat top left; background-size:cover;}
+    	.container {width:100%; margin:0 auto; white-space: normal; background:url("images/bg_glowing_2.png") no-repeat top left; background-size:cover;}
     	section {position: relative; margin: 0 auto; padding:0; overflow: hidden;}    	
     	.hr {margin-top:1rem; margin-bottom:1rem; border: 0; border-top: 1px solid #cecece; opacity:0.5; width:65%; margin:0 auto;}
     	.text-center {text-align:center;}
