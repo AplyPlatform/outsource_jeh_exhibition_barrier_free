@@ -37,13 +37,13 @@ const DEF_TEXT_MAIN_PATH                = "ment/";              // 설명 텍스
 //  voice/start 폴더에 시작 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
 //
 const DEF_VOICE_START_MENT_FIRST_NUM       = 1;                    // 시작 멘트 파일의 첫번째 id 입니다.
-const DEF_VOICE_START_MENT_LAST_NUM        = 3;                    // 시작 멘트 파일의 마지막 id 입니다.
+const DEF_VOICE_START_MENT_LAST_NUM        = 4;                    // 시작 멘트 파일의 마지막 id 입니다.
 
 
 //  voice/end 폴더에 끝맺음 멘트 파일들이 존재하고 [id].mp3 파일을 임의로 선택해서 재생합니다.
 //
 const DEF_VOICE_END_MENT_FIRST_NUM         = 1;                    // 끝맺음 멘트 파일의 첫번째 id 입니다.
-const DEF_VOICE_END_MENT_LAST_NUM          = 4;                    // 끝맺음 멘트 파일의 마지막 id 입니다.
+const DEF_VOICE_END_MENT_LAST_NUM          = 5;                    // 끝맺음 멘트 파일의 마지막 id 입니다.
 //////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////
