@@ -73,9 +73,9 @@
 
 		@keyframes loader_ment_status-c {
 			0% { background: #ffffff }
-			25% { background: #80dbff }
+			25% { background: #d245a9 }
 			50% { background: #ffffff }
-			75% { background: #80dbff }
+			75% { background: #d245a9 }
 			100% { background: #ffffff }}
 
 		.loader_ment_status div {			
@@ -89,20 +89,20 @@
 		}
 		.loader_ment_status div:nth-child(1) {			
 			transform: translate(74px,40px) scale(1);
-			background: #80dbff;
+			background: #d245a9;
 			animation: loader_ment_status-r 1.3157894736842106s infinite cubic-bezier(0,0.5,0.5,1), loader_ment_status-c 5.2631578947368425s infinite step-start;
 		}.loader_ment_status div:nth-child(2) {
 			background: #ffffff;
 			animation-delay: -1.3157894736842106s;			
 		}.loader_ment_status div:nth-child(3) {
-			background: #80dbff;
+			background: #d245a9;
 			animation-delay: -2.6315789473684212s;			
 		}.loader_ment_status div:nth-child(4) {
 			background: #ffffff;
 			animation-delay: -3.9473684210526314s;			
 		}.loader_ment_status div:nth-child(5) {
 			animation-delay: -5.2631578947368425s;
-			background: #80dbff;}
+			background: #d245a9;}
 		.loader_anime {			
 			display: inline-block;
 			background: none;
