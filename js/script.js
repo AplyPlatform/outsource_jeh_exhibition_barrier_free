@@ -117,7 +117,7 @@ function mentScroll(isHow) {
         var targetOffset = $('.body')[0].scrollHeight; // Get the position relative to the parent div                        
         $('.body').animate({
             scrollTop: targetOffset
-        }, mentDuration * 1000);
+        }, mentDuration * 800);
     }
     else {
         $('.body').stop(true, false);
