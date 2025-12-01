@@ -17,6 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 //////////////////////////////////////////////////////////////////////////////////////
 
+const EM_FORWARD  = false;
 
 
 //  voice/main 폴더에 [0 ~ n].mp3 이름의 음성 파일들이 있습니다.
@@ -72,6 +73,10 @@ function GA_EVENT(event_name, event_target_name, event_label) {
 }
 
 async function setTextContent(id) {
+    if (EM_FORWARD == true) {
+        location.href = "https://aq.gy/te/eh/?i=" + id;
+        return;
+    }
     await setContent(".summary", DEF_TEXT_MAIN_PATH + id + ".html");
 }
 
