@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 //////////////////////////////////////////////////////////////////////////////////////
 
-const EM_FORWARD  = true;
+const EM_FORWARD  = false;
 
 
 //  voice/main 폴더에 [0 ~ n].mp3 이름의 음성 파일들이 있습니다.
@@ -122,7 +122,7 @@ function mentScroll(isHow) {
         var targetOffset = $('.body')[0].scrollHeight; // Get the position relative to the parent div                        
         $('.body').animate({
             scrollTop: targetOffset
-        }, mentDuration * 800);
+        }, mentDuration * 1500);
     }
     else {
         $('.body').stop(true, false);
