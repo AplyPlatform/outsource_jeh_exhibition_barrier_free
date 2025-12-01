@@ -3,7 +3,9 @@ import qrcode
 # QR 코드에 담을 데이터
 url = "http://eh.aplx.link?i="
 
-for i in range(26):
+#for i in range(26):
+i = 26
+while i < 28:
     # QR 코드 생성
     qr = qrcode.QRCode(
         version=1,  # QR 코드의 버전 (1~40)
@@ -21,3 +23,4 @@ for i in range(26):
 
     # 이미지 파일로 저장
     img.save(str(i) + ".png")
+    i = i + 1
