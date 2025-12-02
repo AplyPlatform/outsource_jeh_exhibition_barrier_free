@@ -192,10 +192,10 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
     canPlayCallback = fcanPlayCallback;
 }
 
-function init() {                
+async function init() {                
     let retId = checkParam();
     
-    setTextContent(retId);
+    await setTextContent(retId);
 
     audioCtx = new AudioContext();
 
