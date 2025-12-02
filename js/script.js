@@ -77,6 +77,8 @@ async function setTextContent(id) {
         location.href = "https://aq.gy/te/eh/?i=" + id;
         return;
     }
+
+    GA_EVENT("page_show_" + id, "load", "service");
     await setContent(".summary", DEF_TEXT_MAIN_PATH + id + ".html");
 }
 
