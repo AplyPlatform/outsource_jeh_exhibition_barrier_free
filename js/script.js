@@ -84,10 +84,12 @@ async function setTextContent(id) {
 
 function showLoaderAni() {
     $(".loader_anime").show();
+    $("#qrScanBtn").hide();
 }
 
 function hideLoaderAni() {
     $(".loader_anime").hide();
+    $("#qrScanBtn").show();
 }
 
 function setEndMent() {
@@ -246,6 +248,7 @@ async function init() {
         $("#playButton").show();
         $("#stopButton").hide();
         $("#pauseButton").hide();
+
         hideLoaderAni();
     });
     
