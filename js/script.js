@@ -196,6 +196,7 @@ async function init() {
 
     let ret = await setTextContent(retId);    
     if (ret == false) {
+        $("#loaderMent").hide();
         $("#mainLoader").hide();
         return;
     }
@@ -302,7 +303,7 @@ function checkParam() {
 async function setContent(targetId, templateName) {
     let pageContent = await loadTemplate(templateName);
     if (pageContent == "") {
-        pageContent = "<p class='title text-center text-white'>존재하지 않는 콘텐츠입니다.</p>";
+        pageContent = "<p class='title text-center text-white'>오류: 존재하지 않는 콘텐츠입니다.</p>";
         $(targetId).html(pageContent);
         return false;
     }
@@ -316,7 +317,7 @@ async function loadTemplate(templateName) {
     try {
         const content = await fetch(templateName);
         if (!content.ok) return "";
-        
+
         return content.text();
     }
     catch (error) {
