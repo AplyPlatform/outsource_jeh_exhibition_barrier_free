@@ -17,9 +17,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 //////////////////////////////////////////////////////////////////////////////////////
 
-const EM_FORWARD  = false;
-
-
 //  voice/main 폴더에 [0 ~ n].mp3 이름의 음성 파일들이 있습니다.
 //  웹주소 경로의 마지막에 ?id=[n] 의 방법으로 입력된 [n]값에 해당하는 mp3파일을 재생합니다.
 //
@@ -73,13 +70,8 @@ function GA_EVENT(event_name, event_target_name, event_label) {
 }
 
 async function setTextContent(id) {
-    if (EM_FORWARD == true) {
-        location.href = "https://aq.gy/te/eh/?i=" + id;
-        return;
-    }
-
     GA_EVENT("page_show_" + id, "load", "service");
-    await setContent(".summary", DEF_TEXT_MAIN_PATH + id + ".html");
+    return (await setContent(".summary", DEF_TEXT_MAIN_PATH + id + ".html"));
 }
 
 function showLoaderAni() {
@@ -197,7 +189,16 @@ function setCurAudio(id, fendCallback, fcanPlayCallback) {
 async function init() {                
     let retId = checkParam();
     
-    await setTextContent(retId);
+    $("#qrScanBtn").click(function() {
+        GA_EVENT("qrScanBtn", "click", "service");
+        vibrate();
+    });
+
+    let ret = await setTextContent(retId);    
+    if (ret == false) {
+        $("#mainLoader").hide();
+        return;
+    }
 
     audioCtx = new AudioContext();
 
@@ -205,12 +206,7 @@ async function init() {
     $("#pauseButton").hide();
     $("#stopButton").hide();
     $("#loaderMent").hide();
-    $("#endMent").hide();
-
-    $("#qrScanBtn").click(function() {
-        GA_EVENT("qrScanBtn", "click", "service");
-        vibrate();
-    });
+    $("#endMent").hide();    
 
     $(".summary").on('touchstart', function() {
         mentScroll(false);
@@ -305,12 +301,25 @@ function checkParam() {
 
 async function setContent(targetId, templateName) {
     let pageContent = await loadTemplate(templateName);
+    if (pageContent == "") {
+        pageContent = "<p class='title text-center text-white'>존재하지 않는 콘텐츠입니다.</p>";
+        $(targetId).html(pageContent);
+        return false;
+    }
+
     $(targetId).html(pageContent);
+
+    return true;
 }
 
 async function loadTemplate(templateName) {
-    const content = await fetch(templateName);
-    return content.text();
+    try {
+        const content = await fetch(templateName);
+        return content.text();
+    }
+    catch (error) {
+        return "";
+    }
 }
 
 function vibrate() {

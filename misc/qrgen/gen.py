@@ -4,8 +4,8 @@ import qrcode
 url = "http://eh.aplx.link?i="
 
 #for i in range(26):
-i = 26
-while i < 28:
+i = 28
+while i < 31:
     # QR 코드 생성
     qr = qrcode.QRCode(
         version=1,  # QR 코드의 버전 (1~40)
