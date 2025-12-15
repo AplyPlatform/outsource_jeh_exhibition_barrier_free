@@ -197,6 +197,7 @@ async function init() {
     let ret = await setTextContent(retId);    
     if (ret == false) {
         $("#loaderMent").hide();
+        $("#endMent").hide();
         $("#mainLoader").hide();
         return;
     }
