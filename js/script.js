@@ -315,6 +315,8 @@ async function setContent(targetId, templateName) {
 async function loadTemplate(templateName) {
     try {
         const content = await fetch(templateName);
+        if (!content.ok) return "";
+        
         return content.text();
     }
     catch (error) {
